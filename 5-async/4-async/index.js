@@ -1,6 +1,18 @@
 async function fetchData(url) {
   // <-- start
-  // TODO 24: 通过await/async实现异步请求
+  try {
+    const res = await fetch(url, {
+      method: 'GET'
+    });
+    if (res.status === 200) {
+      const body = await res.json();
+      document.writeln(body.name);
+    } else {
+      document.writeln(res.statusText);
+    }
+  } catch (e) {
+    console.log(e);
+  }
   // end -->
 }
 

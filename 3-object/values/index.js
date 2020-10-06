@@ -1,3 +1,8 @@
+// eslint-disable-next-line
+const pluckValue = ([k, v]) => parseInt(v, 10);
+
 export default function countTypesNumber(source) {
-  // TODO 6: 在这里写实现代码
+  return Object.entries(source)
+    .map(pluckValue)
+    .reduce((sum, curr) => sum + curr);
 }
